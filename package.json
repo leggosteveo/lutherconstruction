@@ -1,0 +1,19 @@
+{
+  "name": "lutherconstruction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leggosteveo/lutherconstruction.git"
+  },
+  "author": "Stephen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leggosteveo/lutherconstruction/issues"
+  },
+  "homepage": "https://github.com/leggosteveo/lutherconstruction#readme"
+}

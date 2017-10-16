@@ -1,0 +1,167 @@
+body {
+	background-color: #31320d;
+	color: #e2bf8e;
+	padding:0px;
+	margin:0px;
+	width: 100%;
+	height: 100%;
+	font-family: arial;
+	//font-weight: bold;
+}
+
+a {
+	color:#e2bf8e;
+}
+
+a:hover {
+	text-decoration: none;
+	color:white;
+}
+
+nav {
+	position: relative;
+	padding-left: 5px;
+	padding: 5px;
+	//width: 100%;
+	background-color: #66342b;
+
+}
+
+nav span, nav h1 {
+	margin-left: 5px;
+}
+
+nav h1 {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#background {
+	background-image: url('images/LutherConst2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	height: 300px;
+}
+
+#projects {
+	height: 290px;
+	position: relative;
+	//width: 100%;
+	//overflow: scroll;
+	//top: 280px;
+}
+
+#projects .carousel {
+	border-top: 12px solid white;
+	border-bottom: 12px solid white;
+}
+
+#projects h1 {
+	margin-top: 0px;
+	margin-left: 5px;
+	font-weight: bold;
+}
+
+.carousel-inner .item {
+	//float: left;
+}
+.item img {
+	height: 480px;
+}
+
+#contact {
+	height: 400px;
+	position: relative;
+	widows: 100%;
+}
+
+#contact h1 {
+	margin-left: 5px;
+	font-weight: bold;
+}
+
+form {
+	border: 4px solid white;
+	border-radius: 6px;
+	margin: 10px auto;
+	width: 60%;
+}
+
+form input {
+	margin: 10px auto;
+	width: 90%;
+}
+
+@media (min-width: 700px) {
+
+nav {
+	position: relative;
+	padding-left: 25px;
+	padding: 25px;
+	//width: 100%;
+	background-color: #66342b;
+
+}
+
+nav span, nav h1 {
+	margin-left: 10px;
+}
+
+nav h1 {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#background {
+	background-image: url('images/LutherConst2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	height: 560px;
+	margin-top: -30px;d
+}
+#background h1 {
+	color: white;
+	position: relative;
+	top: 80%;
+	margin: 25px;
+	text-shadow: 3px 2px 12px black;
+}
+
+#projects {
+	height: 800px;
+	position: relative;
+	//width: 100%;
+	//overflow: scroll;
+	//top: 280px;
+}
+
+#projects .carousel {
+	border-top: 12px solid white;
+	border-bottom: 12px solid white;
+}
+
+#projects h1 {
+	margin-left: 25px;
+	font-weight: bold;
+}
+
+.carousel-inner .item {
+	//float: left;
+}
+.item img {
+	height: 480px;
+}
+
+#contact {
+	height: 600px;
+	position: relative;
+}
+
+#contact h1 {
+	margin-left: 25px;
+	font-weight: bold;
+}
+
+}
