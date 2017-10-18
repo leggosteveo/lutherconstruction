@@ -29,6 +29,7 @@ nav {
 
 nav span, nav h1 {
 	margin-left: 5px;
+	text-shadow: 3px 2px 12px black;
 }
 
 nav h1 {
@@ -42,6 +43,17 @@ nav h1 {
 	background-size: cover;
 	position: relative;
 	height: 300px;
+	margin-top: -5px;
+}
+
+#background h1 {
+	color: white;
+	margin: 5px;
+	position: relative;
+	text-shadow: 3px 2px 12px black;
+	top: 70%;
+	font-size: 26px;
+
 }
 
 #projects {
@@ -83,17 +95,47 @@ nav h1 {
 
 form {
 	border: 4px solid white;
-	border-radius: 6px;
+	border-radius: 12px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
 	margin: 10px auto;
-	width: 60%;
+	width: 300px;
+	text-align: center;
+	padding: 10px;
+	background-color: #e2bf8e;
 }
 
 form input {
-	margin: 10px auto;
+	margin: 16px;
 	width: 90%;
+	border-radius: 6px;
+	padding: 6px;
+}
+
+textarea {
+	width: 90%;
+	height: 90px;
+	border-radius: 8px;
+}
+
+input[type="submit"] {
+	background-color: #31320d;
+	color: white;
 }
 
 @media (min-width: 700px) {
+
+form {
+	border: 4px solid white;
+	border-radius: 12px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	margin: 10px auto;
+	width: 500px;
+	text-align: center;
+	padding: 10px;
+	background-color: #e2bf8e;
+}
 
 nav {
 	position: relative;
