@@ -18,6 +18,10 @@ a:hover {
 	color:white;
 }
 
+h1{
+	font-size: 20px;
+}
+
 nav {
 	position: relative;
 	padding-left: 5px;
@@ -42,7 +46,7 @@ nav h1 {
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
-	height: 300px;
+	height: 210px;
 	margin-top: -5px;
 }
 
@@ -52,12 +56,12 @@ nav h1 {
 	position: relative;
 	text-shadow: 3px 2px 12px black;
 	top: 70%;
-	font-size: 26px;
+	font-size: 18px;
 
 }
 
 #projects {
-	height: 290px;
+	height: 320px;
 	position: relative;
 	//width: 100%;
 	//overflow: scroll;
@@ -75,17 +79,30 @@ nav h1 {
 	font-weight: bold;
 }
 
-.carousel-inner .item {
-	//float: left;
+.carousel {
+	height: 100%;
 }
-.item img {
-	height: 480px;
+
+.carousel-inner {
+	height: 100%;
+}
+.item .active img {
+	height: 100%;
+}
+
+.carousel-inner>.item {
+	height: 100%;
+}
+
+.carousel-inner>.item>img {
+	height: 100%;
 }
 
 #contact {
 	height: 400px;
 	position: relative;
-	widows: 100%;
+	margin-top: 50px;
+	//widows: 100%;
 }
 
 #contact h1 {
@@ -156,12 +173,8 @@ nav h1 {
 }
 
 #background {
-	background-image: url('images/LutherConst2.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
 	height: 560px;
-	margin-top: -30px;d
+	margin-top: -30px;
 }
 #background h1 {
 	color: white;
