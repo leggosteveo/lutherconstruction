@@ -67,9 +67,9 @@ nav h1 {
 
 }
 
-#background p {
+ p {
 	color: white;
-	font-size: 20px;
+	font-size: 12px;
 	text-shadow: 3px 2px 12px black;
 }
 
@@ -187,6 +187,10 @@ nav span, nav h1 {
 nav h1 {
 	font-weight: bold;
 	margin-bottom: 10px;
+}
+
+p {
+	font-size: 22px;
 }
 
 #background {
