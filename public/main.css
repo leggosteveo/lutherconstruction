@@ -64,7 +64,11 @@ nav h1 {
 	top: 5%;
 	text-shadow: 3px 2px 12px black;
 	font-size: 18px;
+}
 
+#background p {
+	position: relative;
+	top: 35%;
 }
 
  p {
@@ -131,6 +135,8 @@ form {
 	text-align: center;
 	padding: 10px;
 	background-color: #e2bf8e;
+	color: white;
+	text-align: left;
 }
 
 form input {
@@ -154,6 +160,10 @@ input[type="submit"] {
 @media (min-width: 600px) {
 	#background {
 		height: 300px;
+	}
+
+	#background p {
+		top: 50%;
 	}
 }
 
@@ -204,6 +214,10 @@ p {
 	margin: 25px;
 	font-size: 26px;
 	text-shadow: 3px 2px 12px black;
+}
+
+#background p {
+	top: 65%;
 }
 
 #projects {
