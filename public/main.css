@@ -46,6 +46,10 @@ nav h1 {
 	margin-bottom: 10px;
 }
 
+input, textarea {
+	color: black;
+}
+
 #background {
 	background-image: url('images/LutherConst2.jpg');
 	background-repeat: no-repeat;
