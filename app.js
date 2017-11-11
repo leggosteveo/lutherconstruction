@@ -37,8 +37,8 @@ app.get('/bodyPaTest', function (req, res) {
 var smtpTrans = nodemailer.createTransport({
   service: 'Gmail', 
   auth: {
-    user: 'stephenjovon@gmail.com',
-    pass: 'Bulldogz1'
+    user: 'lutherconstllc@gmail.com',
+    pass: 'Bi11tRit3'
     }
   });
 
