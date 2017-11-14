@@ -4,7 +4,8 @@ var app = express();
 var path = require('path');
 var nodemailer = require('nodemailer');
 var xoauth2 = require('xoauth2');
-var engine = require('consolidate'); 
+var engine = require('consolidate');
+var Mailgun = require('mailgun-js'); 
 
 // Define the port to run on
 app.set('port', (process.env.PORT || 5000));
@@ -24,6 +25,16 @@ app.use('/fonts', express.static(__dirname + '/fonts'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//Your api key, from Mailgun’s Control Panel
+var api_key = 'pubkey-f58715c2d0a5c00d833343f058b223f7';
+
+//Your domain, from the Mailgun Control Panel
+var domain = 'lutherconstllc.herokuapp.com';
+
+//Your sending email address
+var from_who = 'jluther@lutherconstllc.com';
+
+
 
 app.get('/', function(req, res) {
   res.sendfile('public/index.html');
@@ -35,21 +46,22 @@ app.get('/bodyPaTest', function (req, res) {
 });
 
 var smtpTrans = nodemailer.createTransport({
-  service: 'Gmail', 
+  service: 'Mailgun', 
   auth: {
-    user: 'lutherconstllc@gmail.com',
-    pass: 'Bi11tRit3'
+    user: 'postmaster@sandbox5c61e388593e4440bf0d3e030189e951.mailgun.org',
+    pass: '4502e1f18713ccbf499a6e4c3a23c23d'
     }
   });
 
 app.post('/contact', function (req, res) {
-	var mailOpts;
+
+  var mailOpts;
 
 	//Setup Nodemailer transport, I chose gmail. Create an application-specific password to avoid problems.
  
   //Mail options
   mailOpts = {
-      from: req.body.Name + ' &lt;' + req.body.Email+ '&gt;', //grab form data from the request body object
+      from: req.body.Email, //grab form data from the request body object
       to: 'stephenjovon@gmail.com',
       subject: 'Website contact form',
       text: req.body.Message
@@ -63,11 +75,42 @@ app.post('/contact', function (req, res) {
       //Yay!! Email sent
       else {
       	  console.log('Message Sent.')
-      	  console.log(req.body.Name + req.body.Email)
+      	  console.log(req.body.Name + " " + req.body.Email)
           res.render('contact', { title: 'Raging Flame Laboratory - Contact', msg: 'Message sent! Thank you.', err: false, page: 'contact' })
       }
 
   });
+  /*
+      //We pass the api_key and domain to the wrapper, or it won't be able to identify + send emails
+    var mailgun = new Mailgun({apiKey: api_key, domain: domain});
+
+    var data = {
+    //Specify email data
+      from: from_who,
+    //The email to contact
+      to: 'stephenjovon@gmail.com',
+    //Subject and text data  
+      subject: 'Hello from Mailgun',
+      text: req.params.Message
+    }
+
+    //Invokes the method to send emails given the above data with the helper library
+    mailgun.messages().send(data, function (err, body) {
+        //If there is an error, render the error page
+        if (err) {
+            res.render('error', { error : err});
+            console.log("got an error: ", err);
+        }
+        //Else we can greet    and leave
+        else {
+            //Here "submitted.jade" is the view file for this landing page 
+            //We pass the variable "email" from the url parameter in an object rendered by Jade
+            res.render('submitted', { email : req.params.mail });
+            console.log(body);
+        }
+    });
+*/
+
 });
 
 // Listen for requests
