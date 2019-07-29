@@ -1,9 +1,10 @@
+require('./api/data/db.js');
 var express = require('express');
-var bodyParser = require('body-parser');
 var app = express();
 var path = require('path');
+var bodyParser = require('body-parser');
+var routes = require('./api/routes');
 var nodemailer = require('nodemailer');
-// var xoauth2 = require('xoauth2');
 var engine = require('consolidate');
 var Mailgun = require('mailgun-js'); 
 
@@ -24,6 +25,9 @@ app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/fonts', express.static(__dirname + '/fonts'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Add some routing
+app.use('/api', routes);
 
 //Your api key, from Mailgun’s Control Panel
 var api_key = 'pubkey-f58715c2d0a5c00d833343f058b223f7';

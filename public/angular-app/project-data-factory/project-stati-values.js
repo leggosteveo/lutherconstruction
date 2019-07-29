@@ -1,0 +1,1 @@
+angular.module('lutherconstruction').value('Statuses', [{id: 1, status : 'Pending'}, {id: 2, status :'In Progress'}, {id: 3, status : 'Complete'}, {id: 4, status : 'Declined'}]);

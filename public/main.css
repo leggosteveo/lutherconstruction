@@ -1,3 +1,7 @@
+html {
+	height: 100%;
+}
+
 body {
 	background-color: #31320d;
 	color: #e2bf8e;
@@ -19,24 +23,24 @@ a:hover {
 }
 
 h1{
-	font-size: 20px;
+	font-size: 26px;
 	font-weight: bold;
 }
 
-h1, p {
+/*h1, p {
 	margin: 30px;
-}
+}*/
 
 nav {
 	position: relative;
 	padding-left: 5px;
-	padding: 5px;
+	padding: 5px 20px;
 	//width: 100%;
 	background-color: #66342b;
 
 }
 
-nav span, nav h1 {
+nav h1 {
 	margin-left: 5px;
 	text-shadow: 3px 2px 12px black;
 }
@@ -46,8 +50,42 @@ nav h1 {
 	margin-bottom: 10px;
 }
 
-input, textarea {
-	color: black;
+ p {
+	color: white;
+	font-size: 12px;
+	text-shadow: 3px 2px 12px black;
+}
+
+
+
+
+form {
+	border-radius: 12px;
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	margin: 10px auto;
+	width: 300px;
+	text-align: center;
+	padding: 10px;
+	//background-color: #e2bf8e;
+	text-align: left;
+}
+
+form input {
+	width: 90%;
+	border-radius: 6px;
+	padding: 2px;
+}
+
+textarea {
+	width: 90%;
+	height: 90px;
+	border-radius: 8px;
+}
+
+input[type="submit"] {
+	background-color: #31320d;
+	color: white;
 }
 
 #background {
@@ -60,7 +98,7 @@ input, textarea {
 	margin-top: -5px;
 }
 
-#background h1 {
+/*#background h1 {
 	color: white;
 	margin: 5px;
 	margin-left: 25px;
@@ -68,17 +106,32 @@ input, textarea {
 	top: 5%;
 	text-shadow: 3px 2px 12px black;
 	font-size: 18px;
-}
+}*/
 
-#background p {
+#backgroundText {
+	margin: 0 20px;
 	position: relative;
-	top: 35%;
+	top: 60%;
 }
 
- p {
-	color: white;
-	font-size: 12px;
-	text-shadow: 3px 2px 12px black;
+#contact {
+	height: 400px;
+	position: relative;
+	margin: 0px 20px;
+	margin-top: 100px;
+	text-align: center;
+}
+
+#mainContent {
+	height: 100%;
+}
+
+#loginButton {
+	float: right;
+}
+
+#profileButton, #logOutButton {
+	float: right;
 }
 
 #projects {
@@ -98,6 +151,15 @@ input, textarea {
 	margin-top: 0px;
 	margin-left: 25px;
 	font-weight: bold;
+}
+
+#projectDetailsDiv {
+	background-color: #804136;
+	border-top-right-radius: 40%;
+	border-bottom-right-radius: 70%;
+	margin-top: 10%;
+	margin-right: 25%;
+	padding: 5%;
 }
 
 .carousel {
@@ -123,58 +185,53 @@ input, textarea {
 	width: 100%;
 }
 
-#contact {
-	height: 400px;
-	position: relative;
-	margin-top: 100px;
+.nav-contact {
+	color: #3f201a;
+	margin: 0px 2px;
+	font-size: 80%;
 }
 
-form {
-	border: 4px solid white;
-	border-radius: 12px;
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
-	margin: 10px auto;
-	width: 300px;
-	text-align: center;
-	padding: 10px;
-	background-color: #e2bf8e;
-	color: white;
-	text-align: left;
+.status-button {
+		background-color: #804136; 
+		border-left: 2px solid #66342b;
+		float:right; 
+		width: 15%;
 }
 
-form input {
-	margin: 16px;
-	width: 90%;
-	border-radius: 6px;
-	padding: 6px;
-}
 
-textarea {
-	width: 90%;
-	height: 90px;
-	border-radius: 8px;
-}
 
-input[type="submit"] {
-	background-color: #31320d;
-	color: white;
-}
+
 
 @media (min-width: 600px) {
 	#background {
-		height: 300px;
+		height: 400px;
 	}
 
-	#background p {
-		top: 50%;
+	#backgroundText {
+		top: 70%;
 	}
+
 }
 
-@media (min-width: 700px) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+LARGE SCREENS
+*/
+@media screen and (min-width: 700px) {
 
 form {
-	border: 4px solid white;
 	border-radius: 12px;
 	border-top-left-radius: 30px;
 	border-top-right-radius: 30px;
@@ -182,7 +239,7 @@ form {
 	width: 500px;
 	text-align: center;
 	padding: 10px;
-	background-color: #e2bf8e;
+	//background-color: #e2bf8e;
 }
 
 nav {
@@ -208,8 +265,7 @@ p {
 }
 
 #background {
-	height: 600px;
-	margin-top: -30px;
+	height: 600px;;
 }
 #background h1 {
 	color: white;
