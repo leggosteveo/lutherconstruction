@@ -3,7 +3,8 @@
 <head>
 	<title>Luther Construction</title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="main.css">profilePage.css
+	<link rel="stylesheet" type="text/css" href="profilePage.css">
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 	<style type="text/css">
 	body {
@@ -27,6 +28,7 @@
 		width: 100%;
 	}
 	</style>
+</head>
 <body>
 	<div id="profileUserInfoDiv" style="margin: 0px 20px;">
 		<h1 class="profileUser">{{name}}</h1>	
@@ -38,7 +40,7 @@
 			<select class="btn status-button" style="float:right; border-left: 2px solid #66342b;" ng-model="newStatus"ng-options="stati.status for stati in statuses" ng-change="setStatus(project._id, newStatus)">
 			</select>
 		</div>
-		<project-info data="project" ng-repeat="project in projects" isNewStatus="setStatus(newStatus)">	
+		<project-info data="project" ng-repeat="project in projects" isNewStatus="setStatus(id, newStatus)">	
 		 <!-- | filter:search | orderBy: 'venueDistrict' -->		
 		</project-info>
 		<div class="btn-group row project-div">
@@ -68,5 +70,55 @@
 			<option>Declined</option>
 			</select>
 		</div>
+		
+<div>			
+	<button class="btn" ng-click="showProjectForm()">Create New Project</button>
+	<form ng-show="makeNewProject()">
+	 	<label>Client</label>
+	 	<input placehlder="Client">
+	 	<label>Customer Name</label>
+	 	<input placehlder="Customer Name">
+	 	<label>Type of Project</label>
+	 	<select ng-model="typeOfProject">
+	 	<option>New Bathroom</option>
+	 	<option>Interior Construction</option>
+	 	<option>Exterior Construction</option>
+	 	</select>
+	 	<label>Project Time Frame</label>
+	 	<select ng-model="projectTimeFrame">
+	 	<option>1 Week</option>
+	 	<option>1 Month</option>
+	 	<option>1 Year</option>
+	 	</select>
+	 	<label>Project Budget</label>
+	 	<select ng-model="projectBudget">
+	 	<option>100</option>
+	 	<option>1000</option>
+	 	<option>10000</option>
+	 	</select>
+	 	<label>Crew</label>
+	 	<select ng-model="crew">
+	 	<option>jeremy@lutherconstruction.com</option>
+	 	<option>arnold@lutherconstruction.com</option>
+	 	<option>1 Year</option>
+	 	</select>
+	 	<button class="btn" type="submit">Create Project</button>
+	 </form>
+  </div>
+		<button class="btn" ng-click="showNewUserForm">Create New User</button>
+		<form ng-show="makeNewUser()">
+			<label>Username</label>	
+			<input placeholder="Username">
+			<label>Name</label>	
+			<input placeholder="Name">
+			<label>Password</label>	
+			<input placeholder="Password">
+			<label>Role</label>	
+			<select ng-model="role">
+				<option>Crew</option>
+				<option>Client</option>
+				<option>Admin</option>
+			</select>			
+		</form>
 	</div>
 </body>
