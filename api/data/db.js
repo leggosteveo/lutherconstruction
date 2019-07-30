@@ -7,7 +7,7 @@ require('./users.model');
 
 
 
-var dburl = process.evn.MLABURI || 'mongodb://localhost:27017/lutherconstruction';
+var dburl = process.env.MLABURI || 'mongodb://localhost:27017/lutherconstruction';
 var retry = null;
 mongoose.connect(dburl, { useCreateIndex: true });
 
