@@ -1,34 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="lutherconstuction">
-<head>
-	<title>Luther Construction</title>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="main.css">profilePage.css
-	<link rel="stylesheet" type="text/css" href="profilePage.css">
-	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-	<style type="text/css">
-	body {
-		background-color: #66342b;
-		color: white;
-	}
-
-	form {
-		margin-top: 20%;
-	}
-
-	.project-btn {
-		background-color: #804136;
-		margin-right: 2px;
-	}
-
-	.project-div {
-		background-color: #804136;
-		border-radius: 4px;
-		margin: 10px 0px;
-		width: 100%;
-	}
-	</style>
-</head>
+<head><link rel="stylesheet" type="text/css" href="profilePage.css"></head>
 <body>
 	<div id="profileUserInfoDiv" style="margin: 0px 20px;">
 		<h1 class="profileUser">{{name}}</h1>	
@@ -37,7 +8,7 @@
 		<h1>Projects</h1>
 		<div ng-repeat="project in projects" class="btn-group row project-div">
 		 <button class="btn col-10 project-btn">{{project.customerName}} - {{project.typeOfProject}}</button>
-			<select class="btn status-button" style="float:right; border-left: 2px solid #66342b;" ng-model="newStatus"ng-options="stati.status for stati in statuses" ng-change="setStatus(project._id, newStatus)">
+			<select class="btn status-button {{project.status}}" style="float:right; border-left: 2px solid #66342b;" ng-model="newStatus"ng-options="stati.status for stati in statuses" ng-change="setStatus(project._id, newStatus)">
 			</select>
 		</div>
 		<project-info data="project" ng-repeat="project in projects" isNewStatus="setStatus(id, newStatus)">	
@@ -71,8 +42,8 @@
 			</select>
 		</div>
 		
-<div>			
-	<button class="btn" ng-click="showProjectForm()">Create New Project</button>
+	<div>			
+	<button class="btn create-button" ng-click="showProjectForm()">Create New Project</button>
 	<form ng-show="makeNewProject()">
 	 	<label>Client</label>
 	 	<input placehlder="Client">
@@ -102,10 +73,12 @@
 	 	<option>arnold@lutherconstruction.com</option>
 	 	<option>brandon@lutherconstruction.com</option>
 	 	</select>
-	 	<button class="btn" type="submit">Create Project</button>
+	 	<button class="btn create-button" type="submit">Create Project</button>
 	 </form>
-  </div>
-		<button class="btn" ng-click="showNewUserForm">Create New User</button>
+	 </div>
+  <div id="usersListDiv">
+  		<h1>Users</h1>
+		<button class="btn create-button" ng-click="showNewUserForm">Create New User</button>
 		<form ng-show="makeNewUser()">
 			<label>Username</label>	
 			<input placeholder="Username">
@@ -118,7 +91,10 @@
 				<option>Crew</option>
 				<option>Client</option>
 				<option>Admin</option>
-			</select>			
+			</select>
+			<button class="btn create-button"type="submit">Create User</button>			
 		</form>
 	</div>
+	</div>
+
 </body>
