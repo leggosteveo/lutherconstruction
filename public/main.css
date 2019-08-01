@@ -162,6 +162,12 @@ input[type="submit"] {
 	padding: 5%;
 }
 
+.Building {
+	background-color: orange;
+	content: "In Progress";
+	float: right;
+}
+
 .carousel {
 	height: 100%;
 }
@@ -170,10 +176,7 @@ input[type="submit"] {
 	height: 100%;
 	width: 100%;
 }
-.item .active img {
-	height: 100%;
-	width: 100%;
-}
+
 
 .carousel-inner>.item {
 	height: 100%;
@@ -185,9 +188,23 @@ input[type="submit"] {
 	width: 100%;
 }
 
+.Complete {
+	background-color: green;
+}
+
 .create-button {
 	color: green;
 }
+
+.Denied {
+	background-color: red;
+}
+
+.item .active img {
+	height: 100%;
+	width: 100%;
+}
+
 
 .nav-contact {
 	color: #3f201a;
@@ -195,11 +212,20 @@ input[type="submit"] {
 	font-size: 80%;
 }
 
-.status-button {
-		background-color: #804136; 
+.Pending {
+	background-color: gold;
+}
+
+.project-div {
+		background-color: #804136;
+		border-radius: 4px;
+		margin-bottom: 20px;
+}
+ 
+.status {
 		border-left: 2px solid #66342b;
-		float:right; 
-		width: 15%;
+		color: white;
+		float:right !important; 
 }
 
 

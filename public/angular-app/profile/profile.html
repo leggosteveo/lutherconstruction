@@ -6,93 +6,67 @@
 	</div>
 	<div id="profileProjectsDiv" class="container">
 		<h1>Projects</h1>
-		<div ng-repeat="project in projects" class="btn-group row project-div">
-		 <button class="btn col-10 project-btn">{{project.customerName}} - {{project.typeOfProject}}</button>
-			<select class="btn status-button {{project.status}}" style="float:right; border-left: 2px solid #66342b;" ng-model="newStatus"ng-options="stati.status for stati in statuses" ng-change="setStatus(project._id, newStatus)">
-			</select>
-		</div>
-		<project-info data="project" ng-repeat="project in projects" isNewStatus="setStatus(id, newStatus)">	
-		 <!-- | filter:search | orderBy: 'venueDistrict' -->		
-		</project-info>
-		<div class="btn-group row project-div">
-			<button class="btn col-10 project-btn">Cindy Hudson - New Bathroom</button>
-			<select class="btn status-button" style="float:right; border-left: 2px solid #66342b;">
-			<option selected>Pending</option>
-			<option >In Progress</option>
-			<option >Complete</option>
-			<option>Declined</option>
-			</select>
-		</div>
-		<div class="btn-group row project-div">
-			<button class="btn col-10 project-btn">Cindy Hudson - New Bathroom</button>
-			<select class="btn status-button" style="background-color: gold; float:right; border-left: 2px solid #66342b;">
-			<option>Pending</option>
-			<option selected>In Progress</option>
-			<option >Complete</option>
-			<option>Declined</option>
-			</select>
-		</div>
-		<div class="btn-group row project-div">
-			<button class="btn col-10 project-btn">Cindy Hudson - New Bathroom</button>
-			<select class="btn status-button" style="background-color: green; float:right; border-left: 2px solid #66342b;">
-			<option>Pending</option>
-			<option>In Progress</option>
-			<option selected>Complete</option>
-			<option>Declined</option>
-			</select>
-		</div>
-		
+		<a ng-href="#!/project/{{project._id}}" ng-repeat="project in projects">
+			<div class="row project-div" >
+		 		<div class="btn project-btn">{{project.customerName}} - {{project.typeOfProject}}</div>
+		 		<div class="btn status {{project.status}}">{{project.status}}</div>
+		 	</div>
+		</a>
 	<div>			
-	<button class="btn create-button" ng-click="showProjectForm()">Create New Project</button>
-	<form ng-show="makeNewProject()">
-	 	<label>Client</label>
-	 	<input placehlder="Client">
-	 	<label>Customer Name</label>
-	 	<input placehlder="Customer Name">
-	 	<label>Type of Project</label>
-	 	<select ng-model="typeOfProject">
-	 	<option>New Bathroom</option>
-	 	<option>Interior Construction</option>
-	 	<option>Exterior Construction</option>
-	 	</select>
-	 	<label>Project Time Frame</label>
-	 	<select ng-model="projectTimeFrame">
-	 	<option>1 Week</option>
-	 	<option>1 Month</option>
-	 	<option>1 Year</option>
-	 	</select>
-	 	<label>Project Budget</label>
-	 	<select ng-model="projectBudget">
-	 	<option>100</option>
-	 	<option>1000</option>
-	 	<option>10000</option>
-	 	</select>
-	 	<label>Crew</label>
-	 	<select ng-model="crew">
-	 	<option>jeremy@lutherconstruction.com</option>
-	 	<option>arnold@lutherconstruction.com</option>
-	 	<option>brandon@lutherconstruction.com</option>
-	 	</select>
-	 	<button class="btn create-button" type="submit">Create Project</button>
+	<button class="btn create-button" ng-click="newProjectForm=!newProjectForm">Create New Project</button>
+	<form ng-show="newProjectForm">
+	 	<div form-group>
+	 	    <label for="newProjectClient">Client</label>
+ 		 	<input class="form-control" id="newProjectClient"placeholder="Client">
+ 		 	<label for="newProjectCustomerName">Customer Name</label>
+ 		 	<input class="form-control" id="newProjectCustomerName"placeholder="Customer Name">
+ 		 	<label for="newProjectTypeOfProject">Type of Project</label>
+ 		 	<select class="form-control" id="newProjectTypeOfProject"ng-model="typeOfProject">
+ 		 	<option>New Bathroom</option>
+ 		 	<option>Interior Construction</option>
+ 		 	<option>Exterior Construction</option>
+ 		 	</select>
+ 		 	<label for="newProjectProjectTimeFrame">Project Time Frame</label>
+ 		 	<select class="form-control" id="newProjectProjectTimeFrame"ng-model="projectTimeFrame">
+ 		 	<option>1 Week</option>
+ 		 	<option>1 Month</option>
+ 		 	<option>1 Year</option>
+ 		 	</select>
+ 		 	<label for="newProjectProjectBudget">Project Budget</label>
+ 		 	<select class="form-control" id="newProjectProjectBudget"ng-model="projectBudget">
+ 		 	<option>100</option>
+ 		 	<option>1000</option>
+ 		 	<option>10000</option>
+ 		 	</select>
+ 		 	<label for="newProjectCrew">Crew</label>
+ 		 	<select class="form-control" id="newProjectCrew"ng-model="crew">
+ 		 	<option>jeremy@lutherconstruction.com</option>
+ 		 	<option>arnold@lutherconstruction.com</option>
+ 		 	<option>brandon@lutherconstruction.com</option>
+ 		 	</select>
+ 		 	<button class="btn create-button" type="submit">Create Project</button>
+ 		</div>
 	 </form>
 	 </div>
   <div id="usersListDiv">
   		<h1>Users</h1>
-		<button class="btn create-button" ng-click="showNewUserForm">Create New User</button>
-		<form ng-show="makeNewUser()">
-			<label>Username</label>	
-			<input placeholder="Username">
-			<label>Name</label>	
-			<input placeholder="Name">
-			<label>Password</label>	
-			<input placeholder="Password">
-			<label>Role</label>	
-			<select ng-model="role">
-				<option>Crew</option>
-				<option>Client</option>
-				<option>Admin</option>
-			</select>
-			<button class="btn create-button"type="submit">Create User</button>			
+		<button class="btn create-button" ng-click="newUserForm=!newUserForm">Create New User</button>
+		<form ng-show="newUserForm">
+			<div form-group>
+			<label for="newUserUsername">Username</label>	
+									<input class="form-control" id="newUserUsername"placeholder="Username">
+									<label for="newUserName">Name</label>	
+									<input class="form-control" id="newUserName"placeholder="Name">
+									<label for="newUserPassword">Password</label>	
+									<input class="form-control" id="newUserPassword"placeholder="Password">
+									<label for="newUserRole">Role</label>	
+									<select class="form-control" id="newUserRole" ng-model="role">
+										<option>Crew</option>
+										<option>Client</option>
+										<option>Admin</option>
+									</select>
+									<button class="btn create-button"type="submit">Create User</button>
+			</div>			
 		</form>
 	</div>
 	</div>

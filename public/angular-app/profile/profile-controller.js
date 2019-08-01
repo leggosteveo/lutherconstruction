@@ -16,7 +16,7 @@ function ProfileController($route, $routeParams, $scope, $window, projectDataFac
 	var projectSearch = {[$scope.role]:$scope.user}
 	}
 
-	projectDataFactory.projectList(projectSearch).then(function(response) {
+	projectDataFactory.projectList().then(function(response) {
 		$scope.projects = response.data;
 	});
 

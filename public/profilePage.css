@@ -5,17 +5,16 @@
 	}
 
 	form {
-		margin-top: 20%;
+		//margin-top: 20%;
 	}
 
 	.project-btn {
 		background-color: #804136;
-		margin-right: 2px;
+		//margin-right: 2px;
 	}
 
 	.project-div {
 		background-color: #804136;
 		border-radius: 4px;
-		margin: 10px 0px;
-		width: 100%;
+		margin-bottom: 20px;
 	}

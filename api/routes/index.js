@@ -6,7 +6,7 @@ var ctrlUsers = require('../controllers/users.controllers.js');
 
 // Project routes
 router
-  .route('/projects/:projectSearch')
+  .route('/projects/')
   .get(ctrlProjects.projectsGetAll)
   .post(ctrlProjects.projectsAddOne);
 

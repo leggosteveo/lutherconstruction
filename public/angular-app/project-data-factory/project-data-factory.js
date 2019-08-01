@@ -3,15 +3,20 @@ angular.module('lutherconstruction').factory('projectDataFactory', projectDataFa
 function projectDataFactory($http) {
   return {
     projectList: projectList,
-    projectDisplay: projectDisplay
+    projectDisplay: projectDisplay,
+    projectUpdate : projectUpdate
   };
 
-  function projectList(projectSearch) {
-    return $http.get('/api/projects/' + projectSearch ).then(complete).catch(failed);
+  function projectList() {
+    return $http.get('/api/projects/').then(complete).catch(failed);
   }
 
   function projectDisplay(id) {
     return $http.get('/api/projects/' + id).then(complete).catch(failed);
+  }
+
+  function projectUpdate(id, status) {
+    return $http.put('api/projects' + id, status).then(complete).catch(failed);
   }
 
   function complete(response) {

@@ -28,8 +28,8 @@ function config($httpProvider, $routeProvider, $locationProvider) {
         restricted: false
       }
     })
-    .when('/project', {
-      templateUrl: 'angular-app/project/project.html',
+    .when('/project/:id', {
+      templateUrl: 'angular-app/project-display/project.html',
       controller: ProjectController,
       controllerAs: 'vm',
       access: {
