@@ -25,7 +25,7 @@ function config($httpProvider, $routeProvider, $locationProvider) {
       controller: ProfileController,
       controllerAs: 'vm',
       access: {
-        restricted: false
+        restricted: true
       }
     })
     .when('/project/:id', {
