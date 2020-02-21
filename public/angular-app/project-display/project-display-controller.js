@@ -6,7 +6,9 @@ function ProjectController($route, $routeParams, $scope, $window, AuthFactory, p
 
 	projectDataFactory.projectDisplay(id).then(function(response) {
     $scope.project = response.data;
-});
+	});
+	project = $scope.project;
+	console.log(project);
 
     $scope.isLoggedIn = function() {
     	if (AuthFactory.isLoggedIn) {

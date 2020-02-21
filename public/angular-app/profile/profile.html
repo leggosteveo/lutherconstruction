@@ -6,14 +6,14 @@
 	</div>
 	<div id="profileProjectsDiv" class="container">
 		<h1>Projects</h1>
-		<a ng-href="#!/project/{{project._id}}" ng-repeat="project in projects">
+		<a class="projectInfo" ng-href="#!/project/{{project._id}}" ng-repeat="project in projects">
 			<div class="row project-div" >
-		 		<div class="btn project-btn">{{project.customerName}} - {{project.typeOfProject}}</div>
+		 		<div class="btn project-btn">{{project.projectName}}</div>
 		 		<div class="btn status {{project.status}}">{{project.status}}</div>
 		 	</div>
 		</a>
 	<div>			
-	<button class="btn create-button" ng-click="newProjectForm=!newProjectForm">Create New Project</button>
+	<button class="btn submit-button" ng-click="newProjectForm=!newProjectForm">Create New Project</button>
 	<form ng-show="newProjectForm">
 	 	<div form-group>
 	 	    <label for="newProjectClient">Client</label>
@@ -44,13 +44,13 @@
  		 	<option>arnold@lutherconstruction.com</option>
  		 	<option>brandon@lutherconstruction.com</option>
  		 	</select>
- 		 	<button class="btn create-button" type="submit">Create Project</button>
+ 		 	<button class="btn submit-button" type="submit">Create Project</button>
  		</div>
 	 </form>
 	 </div>
   <div id="usersListDiv">
   		<h1>Users</h1>
-		<button class="btn create-button" ng-click="newUserForm=!newUserForm">Create New User</button>
+		<button class="btn submit-button" ng-click="newUserForm=!newUserForm">Create New User</button>
 		<form ng-show="newUserForm">
 			<div form-group>
 			<label for="newUserUsername">Username</label>	
@@ -65,7 +65,7 @@
 										<option>Client</option>
 										<option>Admin</option>
 									</select>
-									<button class="btn create-button"type="submit">Create User</button>
+									<button class="btn submit-button"type="submit">Create User</button>
 			</div>			
 		</form>
 	</div>

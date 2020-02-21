@@ -10,7 +10,6 @@ body {
 	width: 100%;
 	height: 100%;
 	font-family: arial;
-	//font-weight: bold;
 }
 
 a {
@@ -34,8 +33,8 @@ h1{
 nav {
 	position: relative;
 	padding-left: 5px;
-	padding: 5px 20px;
-	//width: 100%;
+	padding: 5px 10px;
+	width: 100%;
 	background-color: #66342b;
 
 }
@@ -162,10 +161,11 @@ input[type="submit"] {
 	padding: 5%;
 }
 
-.Building {
+.building {
 	background-color: orange;
 	content: "In Progress";
 	float: right;
+	text-transform: capitalize;
 }
 
 .carousel {
@@ -188,16 +188,19 @@ input[type="submit"] {
 	width: 100%;
 }
 
-.Complete {
+.complete {
 	background-color: green;
+	text-transform: capitalize;
 }
 
-.create-button {
-	color: green;
+.submit-button {
+	background: #331c18;
+	color: gold;
 }
 
-.Denied {
+.denied {
 	background-color: red;
+	text-transform: capitalize;
 }
 
 .item .active img {
@@ -206,20 +209,45 @@ input[type="submit"] {
 }
 
 
+.login-register-form {
+	background-color: #66342b;
+	padding: 5%;
+}
+
 .nav-contact {
 	color: #3f201a;
 	margin: 0px 2px;
 	font-size: 80%;
 }
 
-.Pending {
+.nav-login-links {
+	float: right;
+	margin: 0 1%;
+}
+
+.pending {
 	background-color: gold;
+	text-transform: capitalize;
 }
 
 .project-div {
 		background-color: #804136;
 		border-radius: 4px;
+		margin: 0 auto;
 		margin-bottom: 20px;
+		width: 100%;
+}
+
+.projectHeading {
+	color: #66342b;
+}
+
+.projectInfo {
+	background: white;
+    border-radius: 5% 20% 40% 10%;
+    margin: 2% auto;
+    width: 98%;
+    box-shadow: 3px 5px 12px 0px black;
 }
  
 .status {
@@ -227,10 +255,6 @@ input[type="submit"] {
 		color: white;
 		float:right !important; 
 }
-
-
-
-
 
 @media (min-width: 600px) {
 	#background {

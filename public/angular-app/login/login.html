@@ -1,18 +1,5 @@
-<head>
-	<style type="text/css">
-	body {
-		background-color: #66342b;
-		text-align: center;
-	}
-
-	form {
-		margin-top: 20%;
-	}
-	</style>
-  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-</head>
 <body>
-	<form role="login" ng-submit="login()"> <!-- ng-if="!$scope.isLoggedIn()" -->
+	<form class="login-register-form" role="login" ng-submit="login()"> <!-- ng-if="!$scope.isLoggedIn()" -->
 		<label>Username</label>
 		<input type="text" placeholder="Username" name="loginUserId" ng-model="vm.username"id="loginUserId" style="margin-bottom: 10px;">
 		<label>Password</label>

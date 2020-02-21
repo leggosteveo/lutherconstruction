@@ -7,8 +7,8 @@ function projectDataFactory($http) {
     projectUpdate : projectUpdate
   };
 
-  function projectList() {
-    return $http.get('/api/projects/').then(complete).catch(failed);
+  function projectList(projectSearch) {
+    return $http.get('/api/projects', projectSearch).then(complete).catch(failed);
   }
 
   function projectDisplay(id) {
@@ -16,7 +16,7 @@ function projectDataFactory($http) {
   }
 
   function projectUpdate(id, status) {
-    return $http.put('api/projects' + id, status).then(complete).catch(failed);
+    return $http.put('api/projects/' + id, status).then(complete).catch(failed);
   }
 
   function complete(response) {

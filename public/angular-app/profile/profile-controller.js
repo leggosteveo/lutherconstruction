@@ -8,18 +8,20 @@ function ProfileController($route, $routeParams, $scope, $window, projectDataFac
 	var role = token.role; 
 
 	
-	$scope.role = role;
-	$scope.name = name;
+	vm.role = role;
+	vm.name = name;
+	vm.user = username;
 	var projectSearch = {};
 
-	if($scope.role != 'admin')  {
-	var projectSearch = {[$scope.role]:$scope.user}
+	if(vm.role != 'admin')  {
+	var projectSearch = {role : vm.role, user: vm.user};
 	}
-
-	projectDataFactory.projectList().then(function(response) {
+	console.log(projectSearch);
+	projectDataFactory.projectList(projectSearch).then(function(response) {
 		$scope.projects = response.data;
 	});
 
+	console.log(projectSearch);
 	$scope.setStatus = function(id, status) {
 		projectDataFactory.projectUpdate(id, status).then(function(response) {
 		if (response.status === 200) {

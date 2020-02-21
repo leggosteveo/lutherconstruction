@@ -1,11 +1,11 @@
-<div class="container">
-	<h1>{{project.projectName}}</h1>
+<div class="container projectInfo">
+	<h1 class="projectHeading">{{project.projectName}}</h1>
 	<div>
 	<h3>Type Of Project: {{project.typeOfProject}}</h3>
 	<h3>Expected Duration: {{project.projectTimeFrame}}</h3>
 	<h3>Expected Budget: {{project.projectBudget}}</h3>
 	<div>
-		<h1>Crew</h1>
+		<h1 class="projectHeading">Crew</h1>
 		<h5 ng-repeat="crew in project.crew">{{crew}}</h5>
 	</div>
 	</div>

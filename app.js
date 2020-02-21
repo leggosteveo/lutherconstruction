@@ -9,7 +9,7 @@ var engine = require('consolidate');
 var Mailgun = require('mailgun-js'); 
 
 // Define the port to run on
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 4000));
 
 
 // Set static directory before defining routes
@@ -23,8 +23,9 @@ app.set('view engine', 'html');
 
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use('/fonts', express.static(__dirname + '/fonts'));
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // Add some routing
 app.use('/api', routes);

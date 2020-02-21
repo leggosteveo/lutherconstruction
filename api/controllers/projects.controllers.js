@@ -1,109 +1,41 @@
 var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
 
-
-var runGeoQuery = function(req, res) {
-
-  var lng = parseFloat(req.query.lng);
-  var lat = parseFloat(req.query.lat);
-
-  if (isNaN(lng) || isNaN(lat)) {
-    res
-      .status(400)
-      .json({
-        "message" : "If supplied in querystring, lng and lat must both be numbers"
-      });
-    return;
-  }
-
-  // A geoJSON point
-  var point = {
-    type : "Point",
-    coordinates : [lng, lat]
-  };
-
-  var geoOptions = {
-    spherical : true,
-    maxDistance : 2000,
-    num : 5
-  };
-
-  Project
-    .geoNear(point, geoOptions, function(err, results, stats) {
-      console.log('Geo Results', results);
-      console.log('Geo stats', stats);
-      if (err) {
-        console.log("Error finding projects");
-        res
-          .status(500)
-          .json(err);
-      } else {
-        res
-          .status(200)
-          .json(results);
-      }
-    });
-};
-
 module.exports.projectsGetAll = function(req, res) {
   console.log('Requested by: ' + req.user);
   console.log('GET the projects');
   console.log(req.query);
+  console.log(req.body);
 
   var offset = 0;
   var count = 5;
   var maxCount = 50;
-  var projectSearch = req.params.projectSearch;
-
-  if (req.query && req.query.lat && req.query.lng) {
-    runGeoQuery(req, res);
-    return;
-  }
-
-  if (req.query && req.query.offset) {
-    offset = parseInt(req.query.offset, 10);
-  }
-
-  if (req.query && req.query.count) {
-    count = parseInt(req.query.count, 10);
-  }
-
-  if (isNaN(offset) || isNaN(count)) {
-    res
-      .status(400)
-      .json({
-        "message" : "If supplied in querystring, count and offset must both be numbers"
-      });
-    return;
-  }
-
-  if (count > maxCount) {
-    res
-      .status(400)
-      .json({
-        "message" : "Count limit of " + maxCount + " exceeded"
-      });
-    return;
-  }
+  var userRole = req.body.role;
+  var user = req.body.user;
+  var projectSearch = ({[userRole]:user} || null);
+  console.log(userRole);
+  console.log(user);
+  console.log(projectSearch);
 
   Project
-    .find()
-    .skip(offset)
-    .limit(count)
-    .exec(function(err, projects) {
-      console.log(err);
-      console.log(projects);
-      if (err) {
-        console.log("Error finding projects");
-        res
-          .status(500)
-          .json(err);
-      } else {
-        console.log("Found projects", projects.length);
-        res
-          .json(projects);
-      }
-    });
+  .find(projectSearch)
+  .skip(offset)
+  .limit(count)
+  .exec(function(err, projects) {
+    console.log(err);
+    console.log(projects);
+    if (err) {
+      console.log("Error finding projects");
+      res
+      .status(500)
+      .json(err);
+    } 
+    else {
+      console.log("Found projects", projects.length);
+      res
+      .json(projects);
+    }
+  });
 
 };
 
@@ -113,27 +45,28 @@ module.exports.projectsGetOne = function(req, res) {
   console.log('GET projectId', id);
 
   Project
-    .findById(id)
-    .exec(function(err, doc) {
-      var response = {
-        status : 200,
-        message : doc
-      };
-      if (err) {
-        console.log("Error finding project");
-        response.status = 500;
-        response.message = err;
-      } else if(!doc) {
-        console.log("ProjectId not found in database", id);
-        response.status = 404;
-        response.message = {
-          "message" : "Project ID not found " + id
-        };
-      }
-      res
-        .status(response.status)
-        .json(response.message);
-    });
+  .findById(id)
+  .exec(function(err, doc) {
+    var response = {
+      status : 200,
+      message : doc
+  };
+  if (err) {
+      console.log("Error finding project");
+      response.status = 500;
+      response.message = err;
+  } 
+  else if(!doc) {
+    console.log("ProjectId not found in database", id);
+    response.status = 404;
+    response.message = {
+        "message" : "Project ID not found " + id
+    };
+  }
+    res
+    .status(response.status)
+    .json(response.message);
+  });
 
 };
 

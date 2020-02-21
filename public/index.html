@@ -12,9 +12,10 @@
 		<a href="#"><h1>LUTHER CONSTRUCTION</h1></a>
 		<a href="#"><span class="nav-contact">JeremyLuther81@yahoo.com</span></a>
 		<a href=""><span class="nav-contact">(863) 990-7640</span></a>
-    <a ng-if="!isLoggedIn()" href="#!/login"><span id="loginButton">Login</span></a>
-    <a ng-if="isLoggedIn()" href="#!/profile"><span id="profileButton">Profile</span></a>
-    <a ng-if="isLoggedIn()" href="#" ng-click="logout()"><span id="logOutButton">Log Out</span></a>
+	<a class="nav-login-links" ng-if="!isLoggedIn()" href="#!/login"><span id="loginButton">Login</span></a>
+	<a class="nav-login-links" ng-if="!isLoggedIn()" href="#!/register"><span id="registerButton">Register</span></a>
+    <a class="nav-login-links" ng-if="isLoggedIn()" href="#!/profile"><span id="profileButton">Profile</span></a>
+    <a class="nav-login-links" ng-if="isLoggedIn()" href="#" ng-click="logout()"><span id="logOutButton">Log out</span></a>
 	</nav>
   <div class="" style="height: calc(100% - 99px);">
     <div ng-view style="height:100%;"></div>
@@ -33,7 +34,15 @@
 <script src="angular-app/project-data-factory/project-stati-values.js"></script>
 <script src="angular-app/profile/profile-controller.js"></script>
 <script src="angular-app/project-display/project-display-controller.js"></script>
+<script src="angular-app/register/register-controller.js"></script>
 <script src="angular-app/auth/auth-factory.js"></script>
 <script src="angular-app/auth/auth-interceptor.js"></script>
+<link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-3.4.0/jasmine_favicon.png">
+<link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-3.4.0/jasmine.css">
+
+<script type="text/javascript" src="jasmine/lib/jasmine-3.4.0/jasmine.js"></script>
+<script type="text/javascript" src="jasmine/lib/jasmine-3.4.0/jasmine-html.js"></script>
+<script type="text/javascript" src="jasmine/lib/jasmine-3.4.0/boot.js"></script>
+<script type="text/javascript" src="lib/angular-mocks/angular-mocks.js"></script>
 </body>
 </html>

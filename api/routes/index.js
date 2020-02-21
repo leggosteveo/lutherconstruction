@@ -6,7 +6,7 @@ var ctrlUsers = require('../controllers/users.controllers.js');
 
 // Project routes
 router
-  .route('/projects/')
+  .route('/projects')
   .get(ctrlProjects.projectsGetAll)
   .post(ctrlProjects.projectsAddOne);
 
@@ -23,7 +23,7 @@ router
   .post(ctrlUsers.register);
 
   router
-    .route('/users/login')
-    .post(ctrlUsers.login);
+  .route('/users/login')
+  .post(ctrlUsers.login);
 
 module.exports = router;
